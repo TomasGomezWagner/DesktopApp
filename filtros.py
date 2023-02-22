@@ -2,7 +2,7 @@
 import os
 import glob
 from pathlib import Path
-from manage_files import Manage
+from archivos.manage_files import Manage
 from gender_detector import gender_detector
 
 class Filtros:

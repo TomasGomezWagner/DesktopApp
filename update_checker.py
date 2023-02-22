@@ -29,5 +29,3 @@ def check(current_version):
             else:
                 return False
         
-
-print(check('1.2.2'))

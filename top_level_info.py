@@ -3,11 +3,13 @@ from PIL import Image
 import customtkinter
 from alertas import Alerts
 from settings import VERSION
+from actualizador_vista import Actualizador
 
 class ToplevelWindow(customtkinter.CTkToplevel):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, padre, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+        self.padre = padre
+
         self.title('About')
         self.geometry("300x300")
         self.grid_columnconfigure((0,5), weight=1)
@@ -35,7 +37,16 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.boton = customtkinter.CTkButton(
             self,
             text="Verificar Actualizaciones",
-            command=lambda:Alerts.check_actualizacion(VERSION, self),
+            command=lambda:self.actualizar(),
             )
         self.boton.grid(column=0, row=5, pady=20)
+    
+
+    def actualizar(self, ):
+        pregunta = Alerts.check_actualizacion(VERSION, self)
+        if pregunta:
+            self.quit()
+            self.padre.destroy()
+            actualizador = Actualizador()
+            actualizador.mainloop()
 

@@ -8,16 +8,17 @@ from rutas import examinar_carpeta
 from funciones_principales import Principales
 from alertas import Alerts
 from top_level_info import ToplevelWindow
+from settings import VERSION
 
-
-class App(customtkinter.CTk):
+class VistaPrincipal(customtkinter.CTk):
     def __init__(self):
         super().__init__()
-        
+        self.chek_version = Alerts.aviso_actualizacion(VERSION)
+
         self.ico = Image.open(os.path.join(os.getcwd(), 'img', 'log_cecaitra.png'))
         self.foto = ImageTk.PhotoImage(self.ico)
         self.wm_iconphoto(False, self.foto)
-        
+
         self.title('Revision')
         self.geometry('500x500')
         self.grid_columnconfigure((1), weight=1)
@@ -30,7 +31,7 @@ class App(customtkinter.CTk):
         # ------------------------      MENU      --------------------------------
 
         # ------------------------------------------------------------------------
-        
+
 
         self.barra_menu = tk.Menu(self)
         self.info = tk.Menu(self.barra_menu, tearoff=False)
@@ -45,7 +46,7 @@ class App(customtkinter.CTk):
 
         self.frame_izquierda = customtkinter.CTkFrame(self,)
         self.frame_izquierda.grid(column=0, row=0, sticky='nsew')
-        
+
         self.imagen = customtkinter.CTkImage(
             dark_image=Image.open(os.path.join(os.getcwd(), 'img', 'log_cecaitra.png')),
             light_image=Image.open(os.path.join(os.getcwd(), 'img','logo_cecaitra_negro.png')),
@@ -162,17 +163,23 @@ class App(customtkinter.CTk):
             customtkinter.set_appearance_mode("dark")
         else:
             customtkinter.set_appearance_mode("light")
-        
+
     def open_toplevel(self,):
             if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
-                self.toplevel_window = ToplevelWindow(self,)
-            else:
-                self.toplevel_window.focus()
+                self.toplevel_window = ToplevelWindow(self, self,)
+
+
 
 
 if __name__ == "__main__":
-    from settings import VERSION
-    app = App()
-    Alerts.aviso_actualizacion(VERSION)
-    app.mainloop()
-    
+
+    from actualizador_vista import Actualizador
+
+    app = VistaPrincipal()
+    if app.chek_version == True:
+        app.destroy()
+        asd = Actualizador()
+        asd.focus_force()
+        asd.mainloop()
+    else:
+        app.mainloop()
