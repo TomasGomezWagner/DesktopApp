@@ -1,0 +1,4 @@
+--add-data c:\users\hcapra\desktop\arreglo_csv\lib\site-packages\customtkinter;customtkinter
+--add-data c:\users\hcapra\desktop\arreglo_csv\lib\site-packages\gender_detector;gender_detector
+--add-data C:\Users\hcapra\Desktop\arreglo_csv\carpeta_para_crear_exe\img;img
+--add-data C:\Users\hcapra\Desktop\arreglo_csv\carpeta_para_crear_exe\utils;utils
