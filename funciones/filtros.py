@@ -2,7 +2,7 @@
 import os
 import glob
 from pathlib import Path
-from archivos.manage_files import Manage
+from funciones.manage_files import Manage
 from gender_detector import gender_detector
 
 class Filtros:
@@ -96,7 +96,7 @@ class Filtros:
 
         archivo_filtrado['ok']          = registros_ok
         archivo_filtrado['errores']     = con_errores
-
+        print(len(archivo_filtrado['ok']), len(archivo_filtrado['errores']))
         return archivo_filtrado
             
 
@@ -131,7 +131,7 @@ class Filtros:
         
         archivo_filtrado['ok']      = registros_ok
         archivo_filtrado['errores'] = con_errores
-
+        print(len(archivo_filtrado['ok']), len(archivo_filtrado['errores']))
         return archivo_filtrado
 
 
@@ -163,31 +163,61 @@ class Filtros:
                     remover(lista)
 
             return lista
+        
+        def recorrer_genero(nombres:list):
+            try:
+                genero = detector.guess(nombres[0])
+                if genero == 'female':                    
+                    row[58] = 'F'
+                    registros_ok.append(row)
+                elif genero == 'male':                    
+                    row[58] = 'M'
+                    registros_ok.append(row)
+                else:
+                    nuevo_nombres = nombres[1:]
+                    recorrer_genero(nuevo_nombres)
+            except IndexError:
+                row.append('no se pudo determinar el genero')
+                con_errores.append(row)
+            except Exception as e:
+                print(e)
+                row.append('no se pudo determinar el genero')
+                con_errores.append(row)
+            
 
         for row in registros:
             if (row[56] != '4') and (row[58] == '' or row[58] not in generos):
                 nombres = row[59].split(' ')
-                remover(nombres)
                 
-                genero = detector.guess(nombres[0])
-                if genero == 'female':
-                    row[58] = 'F'
-                    registros_ok.append(row)
-                elif genero == 'male':
-                    row[58] = 'M'
-                    registros_ok.append(row)
-                else:
-                    try:
-                        genero = detector.guess(nombres[1])
-                        if genero == 'female':
-                            row[58] = 'F'
-                            registros_ok.append(row)
-                        elif genero == 'male':
-                            row[58] = 'M'
-                            registros_ok.append(row)
-                    except:
-                        row.append('no se pudo determinar el genero')
-                        con_errores.append(row)
+                remover(nombres) #elimina si hay espacios en blanco delante o detras
+                
+                recorrer_genero(nombres)
+                
+                # genero = detector.guess(nombres[0])
+                
+                # if genero == 'female':                    
+                #     row[58] = 'F'
+                #     registros_ok.append(row)
+                # elif genero == 'male':                    
+                #     row[58] = 'M'
+                #     registros_ok.append(row)
+                # else:
+                #     if len(nombres)>1:
+                        
+                #         genero = detector.guess(nombres[1])    
+                                         
+                #         if genero == 'female':                           
+                #             row[58] = 'F'
+                #             registros_ok.append(row)
+                #         elif genero == 'male':                           
+                #             row[58] = 'M'
+                #             registros_ok.append(row)
+                #         else:
+                #             row.append('no se pudo determinar el genero')
+                #             con_errores.append(row)
+                #     else:
+                #         row.append('no se pudo determinar el genero')
+                #         con_errores.append(row)
 
             elif (row[56] == '4') and (row[58] == '' or row[58] not in generos):
                 row[58] = 'J'
@@ -201,8 +231,9 @@ class Filtros:
             
         archivo_filtrado['ok']      = registros_ok
         archivo_filtrado['errores'] = con_errores
-
+        print(len(archivo_filtrado['ok']), len(archivo_filtrado['errores']))
         return archivo_filtrado
+
 
     def get_imagenes_a_borrar(datos_errores:list[list]) -> list:
 
@@ -265,4 +296,4 @@ if __name__ == '__main__':
     # print('done')
 
 
-    
+

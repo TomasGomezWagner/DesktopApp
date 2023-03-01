@@ -1,5 +1,5 @@
 from tkinter import messagebox
-from update_checker import check
+from updater.update_checker import check
 
 class Alerts:
 

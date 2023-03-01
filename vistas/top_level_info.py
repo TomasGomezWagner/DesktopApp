@@ -1,9 +1,9 @@
 import os
 from PIL import Image
 import customtkinter
-from alertas import Alerts
-from settings import VERSION
-from actualizador_vista import Actualizador
+from generales.alertas import Alerts
+from generales.settings import VERSION
+from vistas.actualizador_vista import Actualizador
 
 class ToplevelWindow(customtkinter.CTkToplevel):
     def __init__(self, padre, *args, **kwargs):

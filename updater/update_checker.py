@@ -1,5 +1,5 @@
 import urllib.request
-from settings import RUTA_VERSION
+from generales.settings import RUTA_VERSION
 
 
 def check(current_version):

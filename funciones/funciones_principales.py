@@ -1,9 +1,9 @@
 import os
 import glob
 import shutil
-from filtros import Filtros
-from manage_files import Manage
-from alertas import Alerts
+from funciones.filtros import Filtros
+from funciones.manage_files import Manage
+from generales.alertas import Alerts
 
 class Principales:
     def __init__(self) -> None:

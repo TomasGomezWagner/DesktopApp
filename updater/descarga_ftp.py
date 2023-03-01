@@ -1,8 +1,8 @@
 import platform
 import os
 from ftplib import FTP
-from alertas import Alerts
-from make_shurtcut import make_shortcut
+from generales.alertas import Alerts
+from updater.make_shurtcut import make_shortcut
 
 def is_ftp_dir(ftp_handle:FTP, name, guess_by_extension=True):
     """ Determina si un item listado en el servidor ftp es un directorio valido o no """

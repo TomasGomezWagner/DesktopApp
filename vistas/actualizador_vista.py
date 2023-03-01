@@ -1,6 +1,6 @@
 from tkinter import *
-from rutas import examinar_carpeta
-from descarga_ftp import actualizar_app
+from generales.rutas import examinar_carpeta
+from updater.descarga_ftp import actualizar_app
 
 class Actualizador(Tk):
     def __init__(self,) -> None:
