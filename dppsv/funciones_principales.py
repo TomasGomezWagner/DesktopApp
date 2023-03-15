@@ -1,5 +1,6 @@
 from dppsv.get_info import Datos
 from generales.alertas import Alerts
+from dppsv.codigos_negocio import principal_codigo_negocio
 
 # from codigos_negocio import insertar_codigos_info
 
@@ -24,12 +25,14 @@ def igual_o_diferente(ruta_txt:str, ruta_pdf:str):
     
     elif datos.get_diferencia(txt, pdf): # txt tiene mas
         datos.mas_txt(ruta_txt, pdf)
+        principal_codigo_negocio(ruta_pdf, ruta_txt)
         # insertar_codigos_info(ruta_pdf, ruta_txt)
 
     else: # pdf tiene mas
         datos.mas_pdf(pdf, txt, ruta_pdf)
         pdf = datos.nombres_pdf(ruta_pdf)
         datos.mas_txt(ruta_txt, pdf)
+        principal_codigo_negocio(ruta_pdf, ruta_txt)
         # insertar_codigos_info(ruta_pdf, ruta_txt)
 
     # la funcion insertar_codigos_info no esta pudiendo conectarse a la base 

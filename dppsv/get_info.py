@@ -108,7 +108,7 @@ class Datos:
 
         padre, archivo = os.path.split(ruta_txt)
         archivo = archivo[:-4]
-        nuevo_txt = os.path.join(padre, f'{archivo}_nuevo.txt')
+        nuevo_txt = os.path.join(padre, f'{archivo}_filtrado.txt')
         
         
         with open(nuevo_txt, 'w', newline="", encoding='latin-1') as file:
@@ -155,8 +155,8 @@ class Datos:
         NOMBRES_PDF = lista generada de los nombres de acta de los pdf.\n
         """
         head, archivo = os.path.split(ruta_txt) # se cambio archivo_filtrado a archivo
-        archivo_filtrado_primero = os.path.join(head, f'{archivo[:-4]}_nuevo.txt')
-        archivo_filtrado_segundo = os.path.join(head, f'{archivo[:-4]}_segundo_filtrado.txt')
+        archivo_filtrado_primero = os.path.join(head, f'{archivo[:-4]}_filtrado.txt')
+        archivo_filtrado_segundo = os.path.join(head, f'{archivo[:-4]}_final.txt')
         
         nuevos_datos = []
 
