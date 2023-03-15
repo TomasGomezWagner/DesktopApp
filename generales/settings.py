@@ -1,4 +1,4 @@
-VERSION = '1.4.0'
+VERSION = '1.4.1'
 
 
 RUTA_VERSION = 'https://raw.githubusercontent.com/TomasGomezWagner/CecaitraApp/main/utils/version.txt'
