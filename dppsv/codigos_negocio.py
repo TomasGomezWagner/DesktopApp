@@ -64,7 +64,7 @@ def principal_codigo_negocio(ruta_pdfs:str, ruta_rc:str) -> None:
     padre, nombre = os.path.split(ruta_rc)
     dia_de_realizacion = datetime.datetime.now().date().strftime('%Y%m%d')
     rc_date = get_rc_date(ruta_rc)
-    nuevo_archivo = os.path.join(padre, f'{dia_de_realizacion}-Salida-{rc_date}.txt')
+    nuevo_archivo = os.path.join(padre, f'{dia_de_realizacion}-{rc_date}-Salida.txt')
 
     Manage.make_archivo(pdfs, nuevo_archivo)
 
