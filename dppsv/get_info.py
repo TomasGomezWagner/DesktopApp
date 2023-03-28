@@ -101,7 +101,9 @@ class Datos:
 
 
     def generar_txt(self, ruta_txt:str) -> None:
-        """Recibe la ruta del txt original y genera el txt con la informacion correcta."""
+        """Recibe la ruta del txt original y genera el txt con la informacion correcta,\n
+        sin repetidos y con el sufijo "_FILTRADO".
+        """
 
         cabecera = self.txt_info(ruta_txt)[0]
         info = self.filtrar_txt_nuevo(ruta_txt)[1]
@@ -124,6 +126,8 @@ class Datos:
 
     def mas_pdf(self, nombres_pdf:list, nombres_txt:list, ruta_pdf:str) -> None:
         """
+        Separa, en una carpeta "pdf_demas", los PDFs que no estan en la lista de nombres\n
+        unicos del txt.\n
         NOMBRES_PDF = lista de los numeros de acta de los pdf.\n 
         NOMBRES_TXT = lista de numeros de acta en el txt.\n
         RUTA_PDF = ruta de la carpeta donde se alojan los pdf.
@@ -154,7 +158,7 @@ class Datos:
         RUTA_TXT = ruta del archivo txt original.\n
         NOMBRES_PDF = lista generada de los nombres de acta de los pdf.\n
         """
-        head, archivo = os.path.split(ruta_txt) # se cambio archivo_filtrado a archivo
+        head, archivo = os.path.split(ruta_txt)
         archivo_filtrado_primero = os.path.join(head, f'{archivo[:-4]}_filtrado.txt')
         archivo_filtrado_segundo = os.path.join(head, f'{archivo[:-4]}_final.txt')
         
@@ -181,8 +185,17 @@ class Datos:
             writer.writerow(['F',str(contador), ''])
         file.close()
 
+    
+    def renombrar_filtrado(self, ruta_txt:str):
+        
+        head, nombre = os.path.split(ruta_txt)
+        nombre = nombre.split('.')[0]
+        ruta_filtrado = os.path.join(head, f'{nombre}_filtrado.txt')
+        ruta_final = os.path.join(head, f'{nombre}_final.txt')
+        os.rename(ruta_filtrado, ruta_final)
 
-    def get_diferencia(self, txt, pdf) -> bool:
+
+    def get_diferencia(self, txt:list, pdf:list) -> bool:
         """
         True: txt tiene mas cantidad.
         False: pdf tiene mas cantidad\n
@@ -192,33 +205,6 @@ class Datos:
         else:
             return False
 
-    # def igual_o_diferente(self, ruta_txt:str, ruta_pdf:str):
-    #     """
-    #     RESULTADO:
-    #     Si hay igual cantidad de lineas en txt que pdf no hace nada,
-    #     si  no, si hay mas pdf, los compara con el txt y los filtra a una carpeta.\n
-    #     Si hay mas registros en el txt los compara con los pdf y filtra por segunda
-    #     vez el txt.
-    #     """
-
-    #     txt = self.filtrar_txt_nuevo(ruta_txt)[0]
-    #     pdf = self.nombres_pdf(ruta_pdf)
-    #     self.generar_txt(ruta_txt)
-
-    #     print(len(txt))
-    #     print(len(pdf))
-
-    #     if len(txt) == len(pdf):
-    #         return 'hay misma cantidad de pdf y registros en txt'
-    #     elif self.get_diferencia(txt, pdf):
-    #         self.mas_txt(ruta_txt, pdf)
-    #         return 'txt tiene mas'
-    #     else:
-    #         self.mas_pdf(pdf, txt, ruta_pdf)
-    #         pdf = self.nombres_pdf(ruta_pdf)
-    #         self.mas_txt(ruta_txt, pdf)
-    #         return 'pdf tiene mas'
-        
 
 
 

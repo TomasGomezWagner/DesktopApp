@@ -58,7 +58,12 @@ def get_codigos_negocio(ruta_pdfs) -> list:
     return codigos_negocio
 
 def principal_codigo_negocio(ruta_pdfs:str, ruta_rc:str) -> None:
-
+    """
+    Toma las rutas del archivo RC y la carpeta contenedora de los PDfs\n
+    y con los nombres de los PDF crea un archivo txt que tiene en el nombre\n
+    la fecha de realizacion del archivo RC original para poder obtener ese dato\n
+    por un modulo en cecasit. 
+    """
     pdfs = get_nombre_pdf(ruta_pdfs)
 
     padre, nombre = os.path.split(ruta_rc)

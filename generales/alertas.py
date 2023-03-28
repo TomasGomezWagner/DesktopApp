@@ -6,10 +6,10 @@ class Alerts:
     def __init__(self) -> None:
         pass
 
-    def informacion():
+    def informacion(mensaje:str):
         messagebox.showinfo(
             title='Alerta de estado',
-            message='Se finalizo el proceso',
+            message= f'Se finalizo el proceso. {mensaje}',
             )
     
     def aviso_actualizacion(current_version):
