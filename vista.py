@@ -11,6 +11,7 @@ from generales.rutas import examinar_carpeta
 from dppsv.funciones_principales import igual_o_diferente
 from generales.settings import VERSION
 
+from vistas.progress_bar import TopLevelProgressBar
 
 class VistaPrincipal(customtkinter.CTk):
     def __init__(self):
@@ -200,11 +201,14 @@ class VistaPrincipal(customtkinter.CTk):
         self.btn_procesar = customtkinter.CTkButton(
             self.frame_derecha_dppsv,
             text='PROCESAR',
-            command=lambda:igual_o_diferente(self.txt_dppsv.get(), self.pdfs_dppsv.get()),
-            )
+            # command=lambda:igual_o_diferente(self.txt_dppsv.get(), self.pdfs_dppsv.get()),
+            # )
+            command=lambda:self.open_toplevel_progress())
         self.btn_procesar.grid(column=0, row=8, pady=20, padx=20, sticky='ew')
 
         return self.frame_derecha_dppsv
+        
+#-------------------------------------------------------------------------------------------------------------------
 
     def switch_event(self,):
         if self.switch_var.get() == 'on':
@@ -213,8 +217,12 @@ class VistaPrincipal(customtkinter.CTk):
             customtkinter.set_appearance_mode("light")
 
     def open_toplevel(self,):
-            if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
-                self.toplevel_window = ToplevelWindow(self, self,)
+        if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
+            self.toplevel_window = ToplevelWindow(self, self,)
+
+    def open_toplevel_progress(self,):
+        if self.toplevel_window is None or not self.toplevel_window.winfo_exists():
+            self.toplevel_window = TopLevelProgressBar(self.txt_dppsv.get(),self.pdfs_dppsv.get())
 
 
 

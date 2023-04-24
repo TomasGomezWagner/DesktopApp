@@ -1,15 +1,18 @@
 import os
 import glob
 import datetime
+from pdfquery import PDFQuery
+from dppsv.pdf_datos import PdfData
 from funciones.manage_files import Manage
+
 # from generales.settings import ESTADOS
 # from dppsv.consultas import get_codigo_negocio_info
 # from dppsv.consultas import update_rc_info
 # from dppsv.consultas import get_last_rc_id
 # from dppsv.consultas import update_devolucion_pdf
 
-ruta_pdfs = r'C:\Users\hcapra\Desktop\Nueva carpeta'
-ruta_rc = r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\xprueba\rc\RC_1000015360_20221010060217.txt'
+# ruta_pdfs = r'C:\Users\hcapra\Desktop\Nueva carpeta'
+# ruta_rc = r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\xprueba\rc\RC_1000015360_20221010060217.txt'
 
 def get_date_rc_for_db(ruta_rc):
     head, archivo = os.path.split(ruta_rc)
@@ -43,6 +46,18 @@ def get_nombre_pdf(ruta_pdfs:str) -> list:
     
     return nombres
 
+def get_pdf_data(ruta_pdfs:str):
+    datos = []
+    archivos = glob.glob(os.path.join(ruta_pdfs,'*.pdf'))
+    
+    
+    for archivo in archivos:
+        pdf = PDFQuery(archivo)
+        data = PdfData(pdf)
+        datos.append(data.data)
+
+    return datos
+
 def get_codigos_negocio(ruta_pdfs) -> list:
 
     pdf_nombres = glob.glob(os.path.join(ruta_pdfs, '*.pdf'))
@@ -57,15 +72,16 @@ def get_codigos_negocio(ruta_pdfs) -> list:
 
     return codigos_negocio
 
-def principal_codigo_negocio(ruta_pdfs:str, ruta_rc:str) -> None:
+def principal_codigo_negocio(ruta_pdfs:str, ruta_rc:str, pdfs_datos:list[list]) -> None:
     """
     Toma las rutas del archivo RC y la carpeta contenedora de los PDfs\n
-    y con los nombres de los PDF crea un archivo txt que tiene en el nombre\n
+    y con los nombres de los PDF crea un archivo txt (SALIDA) que tiene en el nombre\n
     la fecha de realizacion del archivo RC original para poder obtener ese dato\n
     por un modulo en cecasit. 
     """
-    pdfs = get_nombre_pdf(ruta_pdfs)
-
+    
+    #pdfs = get_pdf_data(ruta_pdfs)
+    pdfs = pdfs_datos
     padre, nombre = os.path.split(ruta_rc)
     dia_de_realizacion = datetime.datetime.now().date().strftime('%Y%m%d')
     rc_date = get_rc_date(ruta_rc)
