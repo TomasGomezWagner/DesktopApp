@@ -1,5 +1,4 @@
 import os
-import glob
 import fitz
 
 class PdfData:
@@ -122,8 +121,8 @@ class PdfData:
 
 
 
-
-# pdf = r'E:\148-EXALTACION DE LA CRUZ RN (148)\1000015845\02-148-00025118-1-00_148019629931_RN15918139.pdf'
+# import glob
+#pdf = r'E:\148-EXALTACION DE LA CRUZ RN (148)\1000015845\02-148-00025118-1-00_148019629931_RN15918139.pdf'
 # pdf = r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845\02-148-00023781-3-00_148019630267_RN16419925.pdf'
 # doc = fitz.Document(pdf)
 # page = doc[0]
