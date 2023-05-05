@@ -111,13 +111,13 @@ def actualizar_app(dest:str, root, guess_by_extension=True, sobreescribir=True):
 
 
 
-#ftp = FTP(host='192.168.3.232', user='cecaitra', passwd='Haiti1688')
+# ftp = FTP(host='192.168.3.232', user='cecaitra', passwd='Haiti1688')
 
 
-# mirror(
+# crear(
 #     ftp, 
-#     path='/home/cecaitra/proyecto',
-#     destino=r'C:\Users\hcapra\Desktop\asd',
+#     dir_base_linux='/home/cecaitra/versiones/win/1.4.4_windows',
+#     dest=r'C:\Users\hcapra\Desktop\actualizador_prueba',
 #     sobreescribir=True,
 #     guess_by_extension=False,
 # )

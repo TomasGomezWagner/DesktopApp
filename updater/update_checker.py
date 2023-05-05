@@ -1,7 +1,6 @@
 import urllib.request
 from generales.settings import RUTA_VERSION
 
-
 def check(current_version):
     """ Devuelve True si la version del repositorio es mas nueva. """
 
@@ -29,3 +28,13 @@ def check(current_version):
             else:
                 return False
         
+
+if __name__ == '__main__':
+    # para testear la funcion descomentar las importaciones y comentar la importacion de RUTA_VERCION
+
+    # import sys
+    # sys.path.insert(0, r'C:\Users\hcapra\Desktop\arreglo_csv\archivos\generales')
+    # from settings import RUTA_VERSION
+    
+    # print(check('1.4.3'))
+    pass
