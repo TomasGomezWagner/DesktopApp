@@ -1,7 +1,7 @@
 import urllib.request
 from generales.settings import RUTA_VERSION
 
-def check(current_version):
+def check(current_version:str) -> bool:
     """ Devuelve True si la version del repositorio es mas nueva. """
 
     url = RUTA_VERSION

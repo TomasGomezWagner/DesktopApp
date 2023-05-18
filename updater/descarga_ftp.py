@@ -24,7 +24,7 @@ def is_ftp_dir(ftp_handle:FTP, name, guess_by_extension=True):
     except:
         return False
 
-def make_parents(origen:str, dest:str, ruta:str):
+def make_parents(origen:str, dest:str, ruta:str) -> None:
     """ 
     Toma la ruta del item listado y lo compara con la ruta base del ftp. Obtiene las carpetas\n
     que sobran de la ruta del item e intenta crearlas.
@@ -44,7 +44,7 @@ def make_parents(origen:str, dest:str, ruta:str):
         except Exception as e:
             print(e)
 
-def descargar_archivo(ftp:FTP, origen:str, destino:str, sobreecribir):
+def descargar_archivo(ftp:FTP, origen:str, destino:str, sobreecribir) -> None:
     """ Descarga un archivo del ftp a la carpeta destino """
 
     if not os.path.exists(destino) or sobreecribir is True:
@@ -55,7 +55,7 @@ def descargar_archivo(ftp:FTP, origen:str, destino:str, sobreecribir):
         print('Ya existe en destino: {0}'.format(origen))
             
 
-def crear(ftp:FTP, dir_base_linux:str, dest:str, guess_by_extension=True, sobreescribir=True):
+def crear(ftp:FTP, dir_base_linux:str, dest:str, guess_by_extension=True, sobreescribir=True) -> None:
     """
     Descarga un directorio completo desde un servidor ftp de linux a una carpeta en windows (deberia funcionar\n
     en linux tambien, testear)
@@ -78,7 +78,7 @@ def crear(ftp:FTP, dir_base_linux:str, dest:str, guess_by_extension=True, sobree
 
 
 
-def actualizar_app(dest:str, root, guess_by_extension=True, sobreescribir=True):
+def actualizar_app(dest:str, root, guess_by_extension=True, sobreescribir=True) -> None:
 
     ftp = FTP(host='192.168.3.232', user='cecaitra', passwd='Haiti1688')
 

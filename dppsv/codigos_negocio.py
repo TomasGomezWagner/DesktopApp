@@ -5,14 +5,6 @@ from pdfquery import PDFQuery
 from dppsv.pdf_datos import PdfData
 from funciones.manage_files import Manage
 
-# from generales.settings import ESTADOS
-# from dppsv.consultas import get_codigo_negocio_info
-# from dppsv.consultas import update_rc_info
-# from dppsv.consultas import get_last_rc_id
-# from dppsv.consultas import update_devolucion_pdf
-
-# ruta_pdfs = r'C:\Users\hcapra\Desktop\Nueva carpeta'
-# ruta_rc = r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\xprueba\rc\RC_1000015360_20221010060217.txt'
 
 def get_date_rc_for_db(ruta_rc):
     head, archivo = os.path.split(ruta_rc)

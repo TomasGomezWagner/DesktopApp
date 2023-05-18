@@ -32,12 +32,12 @@ class PdfData:
         if mes in meses:
             return(meses[mes])
         
-    def get_pdf_name(self,):
+    def get_pdf_name(self,) -> str:
         padre, archivo = os.path.split(self.pdf)
         return archivo
         
 
-    def formatear_fecha(self, fecha:str):
+    def formatear_fecha(self, fecha:str) -> str:
         
         nueva_fecha = []
         for item in fecha:
@@ -48,7 +48,7 @@ class PdfData:
         return f'{nueva_fecha[0]}-{nueva_fecha[1]}-{nueva_fecha[2]}'
     
 
-    def get_pdf_data(self,):
+    def get_pdf_data(self,) -> list:
 
         try:
             doc = fitz.Document(self.pdf)
@@ -98,11 +98,11 @@ class PdfData:
     
         
     
-    def get_pdf_data_incomplete(self,):
+    def get_pdf_data_incomplete(self,) -> list:
         return [self.get_pdf_name(), '0', '0', '0', '0', '0', '', '']
 
 
-    def is_good_pdf(self,):
+    def is_good_pdf(self,) -> bool:
 
         try:
             fitz.Document(self.pdf)

@@ -3,7 +3,7 @@ from pathlib import Path
 import win32com.client
 
 
-def make_shortcut(dest, name):
+def make_shortcut(dest:str, name:str) -> None:
     """Make shortcut of `source` path to file in `dest_dir` target folder.
     If `name` is None, will use `source`'s filename.
     """

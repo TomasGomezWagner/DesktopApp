@@ -1,4 +1,4 @@
-VERSION = '1.4.5' # 1.4.4 los antivirus detectan el exe como troyano
+VERSION = '1.4.6' # 1.4.4 los antivirus detectan el exe como troyano
 
 RUTA_VERSION = 'https://raw.githubusercontent.com/TomasGomezWagner/CecaitraApp/main/utils/version.txt'
 
@@ -35,7 +35,7 @@ ESTADOS = {
 
 MENSAJES = {
     'iguales':'Habia igual cantidad.\nSe generó:\nArchivo final\nArchivo salida',
-    'txt':'Habia mas registros en el txt.\nSe generó:\nArchivo filtrado\nArchivo final\nArchivo salida',
+    'txt':'Habia mas registros en el txt.\nSe generó:\nArchivo final\nArchivo salida',
     'pdf':'Habia mas PDFs que registros en el txt.\nSe generó:\nArchivo final\nArchivo salida\nCarpeta pdf_demas',
     'pdf_con_errores' :'\nRevisar porque no se pudo obtener la informacion de algun PDF.',
 }

@@ -42,7 +42,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.boton.grid(column=0, row=5, pady=20)
     
 
-    def actualizar(self, ):
+    def actualizar(self, ) -> None:
         pregunta = Alerts.check_actualizacion(VERSION, self)
         if pregunta:
             self.quit()
