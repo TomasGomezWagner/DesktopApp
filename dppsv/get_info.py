@@ -207,7 +207,7 @@ class Datos:
             os.rename(src, nuevo_sin_sufijo)
         
 
-    def get_diferencia(self, txt:list, pdf:list) -> bool:
+    def get_diferencia(self, txt:list, pdf:list) -> bool: 
         """
         True: txt tiene mas cantidad.
         False: pdf tiene mas cantidad\n
@@ -231,45 +231,39 @@ class Datos:
 
 
     def pasar_a_carpeta_temp(self, rc:str) -> None:
+        """Pasa los datos del archivo salida al archivo salida de carpeta C:\\Temp"""
 
         carpeta_temp                = r'c:\Temp'
         carpeta_rc                  = Path(rc).resolve().parent
         ruta_txt_salida             = glob.glob(os.path.join(carpeta_rc, '*Salida.txt'))[0]
         dia_de_realizacion          = datetime.datetime.now().date().strftime('%Y%m%d')
-        ruta_archivo_salida_temp    = os.path.join(carpeta_temp, f'{dia_de_realizacion}_Salida.txt')
+        ruta_archivo_salida_temp    = os.path.join(carpeta_temp, f'{dia_de_realizacion}-Salida.txt')
         fecha_txt_salida_original   = os.path.basename(ruta_txt_salida).split('-')[1]
-
+        datos_originales_txt_salida = Manage.leer_archivo(ruta_txt_salida)[1:]
+        
         Manage.hacer_carpeta_temp(carpeta_temp)
         
         if not os.path.exists(ruta_archivo_salida_temp):
-            datos           = Manage.leer_archivo(ruta_txt_salida)
-            datos_temp      = [[f'1-{fecha_txt_salida_original}']] + datos
-            datos_nuevos    = []
+            
+            datos_temp      = [[f'1-{fecha_txt_salida_original}']] + datos_originales_txt_salida
 
-            for row in datos_temp:
-                if row is not datos_temp[0]:
-                    datos_nuevos.append(row + [1])
-                else:
-                    datos_nuevos.append(row)
-
-            Manage.make_archivo(datos_nuevos, ruta_archivo_salida_temp)
+            Manage.make_archivo(datos_temp, ruta_archivo_salida_temp)
             
         else:
-            datos_rc                = Manage.leer_archivo(ruta_txt_salida)
             datos_temp              = Manage.leer_archivo(ruta_archivo_salida_temp)
             ultimio_rc_registrado   = datos_temp[0][-1].split('-')[0]
             datos_temp[0]           = datos_temp[0] + [f'{int(ultimio_rc_registrado)+1}-{fecha_txt_salida_original}']
-            datos_temp              = datos_temp + datos_rc
-            
-            datos_nuevos = []
-            for row in datos_temp:
-                if (row is not datos_temp[0]) and (not row[-1].isdigit()):
-                    row = row + [datos_temp[0][-1].split('-')[0]]
-                    datos_nuevos.append(row)
-                else:
-                    datos_nuevos.append(row)
 
-            Manage.make_archivo(datos_nuevos, ruta_archivo_salida_temp)
+            datos_originales_txt_salida_nuevo = []
+
+            for row in datos_originales_txt_salida:
+                row[-1] = int(ultimio_rc_registrado) + 1
+                datos_originales_txt_salida_nuevo.append(row)
+
+            datos_temp = datos_temp + datos_originales_txt_salida_nuevo
+
+
+            Manage.make_archivo(datos_temp, ruta_archivo_salida_temp)
 
 
     def get_rc_date(self, ruta_rc:str) -> str:
@@ -279,19 +273,23 @@ class Datos:
 
 
     def generar_archivo_de_salida(self, ruta_rc:str, pdfs_datos:list[list]) -> None:
-        """
-        Toma las rutas del archivo RC y la carpeta contenedora de los PDfs\n
-        y con los nombres de los PDF crea un archivo txt (SALIDA) que tiene en el nombre\n
-        la fecha de realizacion del archivo RC original para poder obtener ese dato\n
-        por un modulo en cecasit. 
-        """
+        """Genera archivo con la fecha de recepcion como primera linea"""
+        
         pdfs = pdfs_datos
         padre = Path(ruta_rc).resolve().parent
         dia_de_realizacion = datetime.datetime.now().date().strftime('%Y%m%d')
         rc_date = self.get_rc_date(ruta_rc)
         nuevo_archivo = os.path.join(padre, f'{dia_de_realizacion}-{rc_date}-Salida.txt')
+        
 
-        Manage.make_archivo(pdfs, nuevo_archivo)
+        datos = [[f'1-{rc_date}']] + pdfs #agregado
+
+        for i, row in enumerate(datos):
+            if i != 0:
+                datos[i] = row + [1]
+        
+        Manage.make_archivo(datos, nuevo_archivo) #cambio pdfs a datos
+
 
 
 if __name__ == '__main__':

@@ -80,7 +80,8 @@ def crear(ftp:FTP, dir_base_linux:str, dest:str, guess_by_extension=True, sobree
 
 def actualizar_app(dest:str, root, guess_by_extension=True, sobreescribir=True) -> None:
 
-    ftp = FTP(host='192.168.3.232', user='cecaitra', passwd='Haiti1688')
+    # ftp = FTP(host='192.168.3.232', user='cecaitra', passwd='Haiti1688')
+    ftp = FTP(host='192.168.3.248', user='cecaitra', passwd='Haiti1688')
 
     os_type = platform.system()
     print(f'Descargando la nueva version para el sistema operativo {str(os_type).upper()}')

@@ -1,4 +1,4 @@
-VERSION = '1.4.6' # 1.4.4 los antivirus detectan el exe como troyano
+VERSION = '1.4.7' # 1.4.4 los antivirus detectan el exe como troyano
 
 RUTA_VERSION = 'https://raw.githubusercontent.com/TomasGomezWagner/CecaitraApp/main/utils/version.txt'
 
