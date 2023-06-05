@@ -87,14 +87,14 @@ def actualizar_app(dest:str, root, guess_by_extension=True, sobreescribir=True) 
     print(f'Descargando la nueva version para el sistema operativo {str(os_type).upper()}')
 
     if os_type == 'Windows':
-        dir_base_fuente = '/home/cecaitra/versiones/win'
+        dir_base_fuente = '/home/versiones/win'
         dir_base_fuente = ftp.nlst(dir_base_fuente)[-1]
         crear(ftp, dir_base_fuente, dest, guess_by_extension, sobreescribir)
         make_shortcut(dest, name='Procesos')
         Alerts.informacion_actualizacion(root)
 
     elif os_type == 'Linux':
-        dir_base_fuente = '/home/cecaitra/versiones/linux'
+        dir_base_fuente = '/home/versiones/linux'
         dir_base_fuente = ftp.nlst(dir_base_fuente)[-1]
         crear(ftp, dir_base_fuente, dest)
         Alerts.informacion_actualizacion(root)
@@ -110,27 +110,5 @@ def actualizar_app(dest:str, root, guess_by_extension=True, sobreescribir=True) 
 
 
 
-
-
-# ftp = FTP(host='192.168.3.232', user='cecaitra', passwd='Haiti1688')
-
-
-# crear(
-#     ftp, 
-#     dir_base_linux='/home/cecaitra/versiones/win/1.4.4_windows',
-#     dest=r'C:\Users\hcapra\Desktop\actualizador_prueba',
-#     sobreescribir=True,
-#     guess_by_extension=False,
-# )
-
-
-# download_ftp_file(
-#     ftp,
-#     path_src='/home/cecaitra/proyecto/__pycache__/alertas.cpython-39.pyc',
-#     dest=r'C:\Users\hcapra\Desktop\asd',
-#     sobreescribir=False,
-# )
-
-# make_parent_dir('/home/cecaitra/proyecto/__pycache__/asd/qwe/alertas.cpython-39.pyc', r'C:\Users\hcapra\Desktop\asd')
 
 
