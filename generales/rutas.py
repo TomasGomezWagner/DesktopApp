@@ -10,3 +10,4 @@ def examinar_carpeta(textvariable):
     resultado = filedialog.askdirectory()
     print(resultado)
     return textvariable.set(resultado)
+
