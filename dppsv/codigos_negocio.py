@@ -82,39 +82,11 @@ def principal_codigo_negocio(ruta_pdfs:str, ruta_rc:str, pdfs_datos:list[list]) 
     Manage.make_archivo(pdfs, nuevo_archivo)
 
 
-# def insertar_codigos_info(ruta_pdfs, ruta_rc):
-
-#     update_rc_info(get_date_rc_for_db(ruta_rc))
-
-#     rc_id = get_last_rc_id()
-
-#     codigos = get_codigos_negocio(ruta_pdfs)
-
-    
-#     for codigo in codigos:
-#         try:
-#             info        = get_codigo_negocio_info(codigo)
-#             try:
-#                 codigo_id   = info[0]
-#                 codigo_expo = info[1]
-#                 update_devolucion_pdf(rc_id, codigo_expo, codigo_id, ESTADOS['estado_presuncion'])
-#             except Exception as e:
-#                 print(e)
-#         except Exception as e:
-#             print(e)
-        
-#     print('Codigos de negocio ingresados en DEVOLUCION_PDF_DPPSV')
-
 
 if __name__ == '__main__':
-    
-    # ruta_pdfs = r'C:\Users\hcapra\Desktop\Nueva carpeta'
-    # ruta_rc = r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\xprueba\rc\RC_1000015360_20221010060217.txt'
 
-    # insertar_codigos_info(ruta_pdfs, ruta_rc)
-
-    ruta_rc = r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\RC\RC_1000015845_20230313094152.txt'
-    ruta_pdfs = r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845'
+    ruta_rc = r'C:\Users\user\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\RC\RC_1000015845_20230313094152.txt'
+    ruta_pdfs = r'C:\Users\user\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845'
 
     print(get_rc_date(ruta_rc))
 

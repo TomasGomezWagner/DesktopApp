@@ -126,40 +126,12 @@ class PdfData:
 
 if __name__ == '__main__':
 
-    pdf = r'C:\Users\hcapra\Desktop\1000015648\02-029-00191821-3-00_029018895583_27597039.pdf'
-    #pdf = r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845\02-148-00023781-3-00_148019630267_RN16419925.pdf'
+    pdf = r'C:\Users\user\Desktop\1000015648\02-029-00191821-3-00_029018895583_27597039.pdf'
+   
     data = PdfData(pdf)
     print(data.data)
 
-    # import glob
-    #pdf = r'E:\148-EXALTACION DE LA CRUZ RN (148)\1000015845\02-148-00025118-1-00_148019629931_RN15918139.pdf'
-    # pdf = r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845\02-148-00023781-3-00_148019630267_RN16419925.pdf'
-    # doc = fitz.Document(pdf)
-    # page = doc[0]
-
-    # text = page.get_textpage('text')
-
-    # full_dict = text.extractDICT()
-    # print(full_dict)
-    # data = PdfData(pdf)
-    # print(data.data)
-    # carpeta = glob.glob(os.path.join(r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845', '*.pdf')) 
-    # i=0
-    # data_lista = []
-    # for item in carpeta:
-    #     if i == 3:
-    #         break
-
-    #     print(item)
-    #     data = PdfData(item)
-    #     print(data.data)
-    #     data_lista.append(data.data)
-        
-
-    #     #i += 1
-
-    # print(data_lista)
-
+   
         
 
 

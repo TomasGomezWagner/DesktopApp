@@ -296,18 +296,4 @@ if __name__ == '__main__':
 
     asd = Datos()
     
-    # nombres_txt = asd.nombres_txt(r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\filtro_rc_fernando\archivos_fuente\RC\RC_1000015360_20221010060217.txt')
-    # nombres_pdf = asd.nombres_pdf(r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\filtro_rc_fernando\archivos_fuente\1000015360')
-
-    # print(asd.igual_o_diferente(
-    #     r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\filtro_rc_fernando\archivos_fuente\RC\RC_1000015360_20221010060217.txt',
-    #     r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\filtro_rc_fernando\archivos_fuente\1000015360',
-    #     )
-    # )
-    
-    # print(asd.get_diferencia(
-    #     r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\xprueba\rc\nuevo.txt',
-    #     r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\xprueba\1',
-    #     )
-    # )
-    asd.pasar_a_carpeta_temp(r'C:\Users\hcapra\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\mas_en_pdf\RC\20230516-20221010060217-Salida.txt')
+    asd.pasar_a_carpeta_temp(r'C:\Users\user\Desktop\prueba_rc4\archivos\archivos_fuente_filtro_fernando\mas_en_pdf\RC\20230516-20221010060217-Salida.txt')

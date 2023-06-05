@@ -282,18 +282,6 @@ if __name__ == '__main__':
     archivo = Manage()
     filtro = Filtros()
 
-    Filtros.modificar_txt_cantidad(r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\archvos_tar\M161-135-1-246993-ENFORCER_156-220722-errores.txt')
-
-    # datos = archivo.leer_archivo(r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\M161-135-1-247674-ENFORCER_155-050822.txt')
-    # filtrados = filtro.filtro_vacios(datos)
-    # filtro_doc = filtro.filtro_documento(filtrados)
-    # filtro_sex = filtro.verificar_sexo(filtro_doc)
+    Filtros.modificar_txt_cantidad(r'C:\Users\user\Desktop\arreglo_csv\archivos_fuente\archvos_tar\M161-135-1-246993-ENFORCER_156-220722-errores.txt')
 
     
-    # archivo.make_archivo(filtro_sex['ok'],r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\ok.txt')
-    # print('done')
-    # archivo.make_archivo(filtro_sex['errores'],r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\errores.txt')
-    # print('done')
-
-
-

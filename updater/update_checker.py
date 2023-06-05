@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # para testear la funcion descomentar las importaciones y comentar la importacion de RUTA_VERCION
 
     # import sys
-    # sys.path.insert(0, r'C:\Users\hcapra\Desktop\arreglo_csv\archivos\generales')
+    # sys.path.insert(0, r'C:\Users\user\Desktop\arreglo_csv\archivos\generales')
     # from settings import RUTA_VERSION
     
     # print(check('1.4.3'))

@@ -25,4 +25,3 @@ def make_shortcut(dest:str, name:str) -> None:
     shortcut.save()
     
 
-#make_shortcut(r'C:\Users\hcapra\Desktop\arreglo_csv_exe\versiones\win\1.2.1_windows', name='Procesos')

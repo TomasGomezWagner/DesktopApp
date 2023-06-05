@@ -40,9 +40,6 @@ class Manage:
 
 if __name__=='__main__':
 
-    #asd = Manage()
-    # datos = asd.leer_archivo(r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\M161-135-1-247674-ENFORCER_155-050822.txt')
-    # for item in datos:
-    #     print(item)
+    
 
-    Manage.hacer_carpeta_temp(r'C:\Users\hcapra\Desktop\lalolanda')
+    Manage.hacer_carpeta_temp(r'C:\Users\user\Desktop\lalolanda')

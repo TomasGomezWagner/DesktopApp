@@ -94,6 +94,6 @@ class TopLevelProgressBar(customtkinter.CTk):
     
 
 if __name__ == '__main__':
-    asd = TopLevelProgressBar(r'C:\Users\hcapra\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845')
+    asd = TopLevelProgressBar(r'C:\Users\user\Desktop\arreglo_csv\archivos_fuente\devolucion_dppsv\1000015845')
     asd.mainloop()
     
