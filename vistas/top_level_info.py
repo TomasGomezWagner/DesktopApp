@@ -15,8 +15,8 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.grid_columnconfigure((0,5), weight=1)
 
         self.imagen = customtkinter.CTkImage(
-            dark_image=Image.open(os.path.join(os.getcwd(), 'img', 'log_cecaitra.png')),
-            light_image=Image.open(os.path.join(os.getcwd(), 'img','logo_cecaitra_negro.png')),
+            dark_image=Image.open(os.path.join(os.getcwd(), 'img', 'logo.png')),
+            light_image=Image.open(os.path.join(os.getcwd(), 'img','logoo_negro.png')),
             size=(100,100),
             )
         self.label_img = customtkinter.CTkLabel(self, image=self.imagen, text='')
@@ -28,7 +28,7 @@ class ToplevelWindow(customtkinter.CTkToplevel):
         self.label_version = customtkinter.CTkLabel(self, text=f"Version: {VERSION}")
         self.label_version.grid(column=0, row=2, sticky='w', padx=50)
         
-        self.label_empresa = customtkinter.CTkLabel(self, text=f"Empresa: CECAITRA")
+        self.label_empresa = customtkinter.CTkLabel(self, text=f"Empresa: EMPRESA")
         self.label_empresa.grid(column=0, row=3, sticky='w', padx=50)
 
         self.label_coder = customtkinter.CTkLabel(self, text="Desarrollador: Tomas Wagner")

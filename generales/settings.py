@@ -12,20 +12,20 @@ LOCAL = {
     'port':3306,
 }
 
-CECASIT = {
-    'hostname':'cecasit.cecaitra.com',
+DATABASE = {
+    'hostname':'192.0.0.0',
     'port':3306,
-    'database':'cecasit',
-    'username':'cecasit',
-    'password':'Yn3hCPGtAEL2QJyj',
+    'database':'database',
+    'username':'username',
+    'password':'password',
 }
 
-CECASIT_PRODUCCION = {
-    'hostname':'cecasit.ar',
-    'port':50312,
-    'database':'cecasit',
-    'username':'lmila',
-    'password':'lm2023',
+PRODUCCION = {
+    'hostname':'hostname',
+    'port':'port',
+    'database':'database',
+    'username':'username',
+    'password':'password',
 }
 
 ESTADOS = {

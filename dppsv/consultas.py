@@ -1,5 +1,5 @@
 import pymysql
-from generales.settings import CECASIT_PRODUCCION as CONEXION
+from generales.settings import PRODUCCION as CONEXION
 
 CONECTAR = pymysql.connect(
     host    = CONEXION['hostname'],

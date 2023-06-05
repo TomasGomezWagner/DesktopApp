@@ -17,7 +17,7 @@ class VistaPrincipal(customtkinter.CTk):
         super().__init__()
         self.chek_version = Alerts.aviso_actualizacion(VERSION)
 
-        self.ico = Image.open(os.path.join(os.getcwd(), 'img', 'log_cecaitra.png'))
+        self.ico = Image.open(os.path.join(os.getcwd(), 'img', 'logo.png'))
         self.foto = ImageTk.PhotoImage(self.ico)
         self.wm_iconphoto(False, self.foto)
 
@@ -52,8 +52,8 @@ class VistaPrincipal(customtkinter.CTk):
         self.frame_izquierda.grid(column=0, row=0, sticky='nsew')
 
         self.imagen = customtkinter.CTkImage(
-            dark_image=Image.open(os.path.join(os.getcwd(), 'img', 'log_cecaitra.png')),
-            light_image=Image.open(os.path.join(os.getcwd(), 'img','logo_cecaitra_negro.png')),
+            dark_image=Image.open(os.path.join(os.getcwd(), 'img', 'logo.png')),
+            light_image=Image.open(os.path.join(os.getcwd(), 'img','logo_negro.png')),
             size=(100,100),
             )
         self.label_img = customtkinter.CTkLabel(

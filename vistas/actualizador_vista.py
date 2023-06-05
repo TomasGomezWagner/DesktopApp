@@ -11,7 +11,7 @@ class Actualizador(Tk):
         self.grid_columnconfigure(0, weight=1)
         self.destino = StringVar()
 
-        self.titulo = Label(self, text='ACTUALIZADOR CECASIT App')
+        self.titulo = Label(self, text='ACTUALIZADOR App')
         self.titulo.grid(column=0, row=1)
 
         self.eleccion = Label(self, text='Elija la carpeta donde se instalara la applicacion')

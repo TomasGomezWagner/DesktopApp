@@ -8,7 +8,7 @@ def make_shortcut(dest:str, name:str) -> None:
     If `name` is None, will use `source`'s filename.
     """
     source = dest + r'\dist\vista\vista.exe'
-    icon = dest + r'\dist\vista\img\log_cecaitra.ico'
+    icon = dest + r'\dist\vista\img\logo.ico'
     dest_dir = os.path.join(os.environ['HOMEPATH'], 'Desktop')
 
     # process user input
